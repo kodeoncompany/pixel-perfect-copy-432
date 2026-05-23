@@ -96,13 +96,17 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       { property: "og:site_name", content: "IMPCI" },
       { property: "og:type", content: "website" },
-      { property: "og:title", content: "IMPCI — Ciência e Inovação em Moçambique" },
+      { property: "og:title", content: "IMPCI — Instituto Médio Politécnico de Ciência e Inovação" },
       {
         property: "og:description",
         content:
           "Formação técnica certificada pela ANEP. 7 qualificações, ensino diurno e nocturno, plataforma digital.",
       },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "IMPCI — Instituto Médio Politécnico de Ciência e Inovação" },
+      { name: "description", content: "Pixel Perfect Replication builds exact website replicas from design specifications." },
+      { property: "og:description", content: "Pixel Perfect Replication builds exact website replicas from design specifications." },
+      { name: "twitter:description", content: "Pixel Perfect Replication builds exact website replicas from design specifications." },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
