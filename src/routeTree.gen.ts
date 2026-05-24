@@ -13,8 +13,6 @@ import { Route as QualificacoesRouteImport } from './routes/qualificacoes'
 import { Route as ContactoRouteImport } from './routes/contacto'
 import { Route as AdmissoesRouteImport } from './routes/admissoes'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as PlataformaPortalRouteImport } from './routes/plataforma.portal'
-import { Route as PlataformaBibliotecaRouteImport } from './routes/plataforma.biblioteca'
 
 const QualificacoesRoute = QualificacoesRouteImport.update({
   id: '/qualificacoes',
@@ -36,32 +34,18 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const PlataformaPortalRoute = PlataformaPortalRouteImport.update({
-  id: '/plataforma/portal',
-  path: '/plataforma/portal',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const PlataformaBibliotecaRoute = PlataformaBibliotecaRouteImport.update({
-  id: '/plataforma/biblioteca',
-  path: '/plataforma/biblioteca',
-  getParentRoute: () => rootRouteImport,
-} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/admissoes': typeof AdmissoesRoute
   '/contacto': typeof ContactoRoute
   '/qualificacoes': typeof QualificacoesRoute
-  '/plataforma/biblioteca': typeof PlataformaBibliotecaRoute
-  '/plataforma/portal': typeof PlataformaPortalRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/admissoes': typeof AdmissoesRoute
   '/contacto': typeof ContactoRoute
   '/qualificacoes': typeof QualificacoesRoute
-  '/plataforma/biblioteca': typeof PlataformaBibliotecaRoute
-  '/plataforma/portal': typeof PlataformaPortalRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -69,34 +53,13 @@ export interface FileRoutesById {
   '/admissoes': typeof AdmissoesRoute
   '/contacto': typeof ContactoRoute
   '/qualificacoes': typeof QualificacoesRoute
-  '/plataforma/biblioteca': typeof PlataformaBibliotecaRoute
-  '/plataforma/portal': typeof PlataformaPortalRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths:
-    | '/'
-    | '/admissoes'
-    | '/contacto'
-    | '/qualificacoes'
-    | '/plataforma/biblioteca'
-    | '/plataforma/portal'
+  fullPaths: '/' | '/admissoes' | '/contacto' | '/qualificacoes'
   fileRoutesByTo: FileRoutesByTo
-  to:
-    | '/'
-    | '/admissoes'
-    | '/contacto'
-    | '/qualificacoes'
-    | '/plataforma/biblioteca'
-    | '/plataforma/portal'
-  id:
-    | '__root__'
-    | '/'
-    | '/admissoes'
-    | '/contacto'
-    | '/qualificacoes'
-    | '/plataforma/biblioteca'
-    | '/plataforma/portal'
+  to: '/' | '/admissoes' | '/contacto' | '/qualificacoes'
+  id: '__root__' | '/' | '/admissoes' | '/contacto' | '/qualificacoes'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -104,8 +67,6 @@ export interface RootRouteChildren {
   AdmissoesRoute: typeof AdmissoesRoute
   ContactoRoute: typeof ContactoRoute
   QualificacoesRoute: typeof QualificacoesRoute
-  PlataformaBibliotecaRoute: typeof PlataformaBibliotecaRoute
-  PlataformaPortalRoute: typeof PlataformaPortalRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -138,20 +99,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/plataforma/portal': {
-      id: '/plataforma/portal'
-      path: '/plataforma/portal'
-      fullPath: '/plataforma/portal'
-      preLoaderRoute: typeof PlataformaPortalRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/plataforma/biblioteca': {
-      id: '/plataforma/biblioteca'
-      path: '/plataforma/biblioteca'
-      fullPath: '/plataforma/biblioteca'
-      preLoaderRoute: typeof PlataformaBibliotecaRouteImport
-      parentRoute: typeof rootRouteImport
-    }
   }
 }
 
@@ -160,8 +107,6 @@ const rootRouteChildren: RootRouteChildren = {
   AdmissoesRoute: AdmissoesRoute,
   ContactoRoute: ContactoRoute,
   QualificacoesRoute: QualificacoesRoute,
-  PlataformaBibliotecaRoute: PlataformaBibliotecaRoute,
-  PlataformaPortalRoute: PlataformaPortalRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
