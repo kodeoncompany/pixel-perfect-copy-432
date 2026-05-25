@@ -4,6 +4,7 @@ import { DiferenciaisBanner } from "@/components/home/DiferenciaisBanner";
 import { QuemSomos } from "@/components/home/QuemSomos";
 import { PlataformaSection } from "@/components/home/PlataformaSection";
 import { VantagensSection } from "@/components/home/VantagensSection";
+import { Testemunhos } from "@/components/home/Testemunhos";
 import { CTAFinal } from "@/components/home/CTAFinal";
 
 export const Route = createFileRoute("/")({
@@ -36,6 +37,7 @@ function HomePage() {
       <QuemSomos />
       <PlataformaSection />
       <VantagensSection />
+      <Testemunhos />
       <CTAFinal />
     </>
   );
